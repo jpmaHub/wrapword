@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["j.p.mohamedabubacker@gmail.com"]
 
   spec.summary       = "Wrap words with space and length"
-  spec.homepage      = "https://github.com/jpmaHub"
+  spec.homepage      = "https://github.com/jpmaHub/wrapword"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
