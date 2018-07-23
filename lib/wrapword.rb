@@ -3,6 +3,7 @@
 require "wrapword/version"
 
 module Wrapword
+
       def self.wrap(word, limit)
         return word if word.length <= limit
         space = limit
@@ -13,4 +14,8 @@ module Wrapword
       def self.space(word,limit)
         word[0...limit].rindex(' ')
       end 
+
+      def self.undo(word)
+        return word.gsub("\n",' ')
+      end
 end

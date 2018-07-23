@@ -2,6 +2,7 @@
 
 require 'wrapword'
 RSpec.describe Wrapword do
+ 
   include Wrapword
   it 'has a version number' do
     expect(Wrapword::VERSION).not_to be nil
@@ -37,5 +38,30 @@ describe '#wrap' do
     expect(Wrapword.wrap('word word word', 5)) .to eq("word\nword\nword")
     expect(Wrapword.wrap('word word word', 10)) .to eq("word word\nword")
   end
+
 end 
+describe '#undo' do
+# Reverse --undo method
+  it 'can return empty string when the wrapped text is empty' do
+    expect(Wrapword.undo('')) .to eq('')
+  end
+
+  it 'can undo the wrapped text' do
+    expect(Wrapword.undo("wor\nd")) .to eq('word')
+  end
+
+  xit 'can undo text with no spaces' do
+    expect(Wrapword.undo("abc\ndef\nghi\nj")) .to eq('abcdefghij')
+    expect(Wrapword.undo("long\nlong\nword")) .to eq('longlongword')
+  end 
+
+  it 'can undo text with spaces' do
+  expect(Wrapword.undo("word\nword\nword")) .to eq('word word word')
+  expect(Wrapword.undo("word\nword\nword")) .to eq('word word word')
+  expect(Wrapword.undo("word word\nword")) .to eq('word word word')
+  end 
+
+
+end 
+
 end
